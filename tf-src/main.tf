@@ -6,4 +6,18 @@ terraform {
       version = "~> 4.16"
     }
   }
+
+  backend "s3" {
+    bucket = "openweather-tf-state"
+    key    = "statefile/terraform.tfstate"
+    region = "us-east-1"
+}
+}
+
+provider "aws" {
+  region  = "us-east-1"
+}  
+
+module "vpc" {
+    source = "./modules/vpc"
 }
