@@ -30,7 +30,7 @@ resource "aws_subnet" "public-subnet1" {
   cidr_block = "10.0.32.0/20"
 
   tags = {
-    Name = "private-subnet2"
+    Name = "public-subnet1"
   }
 }
 
@@ -39,7 +39,7 @@ resource "aws_subnet" "public-subnet2" {
   cidr_block = "10.0.48.0/20"
 
   tags = {
-    Name = "private-subnet2"
+    Name = "public-subnet2"
   }
 }
 
@@ -53,11 +53,6 @@ resource "aws_internet_gateway" "igw" {
 
 resource "aws_route_table" "public-rt" {
   vpc_id = aws_vpc.vpc.id
-
-  route {
-    cidr_block = "10.0.0.0/16"
-    gateway_id = "local"
-  }
 
   route {
     cidr_block = "0.0.0.0/0"
