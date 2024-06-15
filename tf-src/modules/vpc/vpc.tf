@@ -78,3 +78,8 @@ resource "aws_vpc_endpoint" "s3" {
   vpc_id       = aws_vpc.vpc.id
   service_name = "com.amazonaws.us-east-1.s3"
 }
+
+resource "aws_vpc_endpoint_route_table_association" "private-rt-s3-vpce" {
+  route_table_id  = aws_route_table.example.id
+  vpc_endpoint_id = aws_vpc_endpoint.s3.id
+}
