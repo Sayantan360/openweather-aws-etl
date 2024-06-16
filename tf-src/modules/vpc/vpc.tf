@@ -89,3 +89,12 @@ resource "aws_vpc_endpoint_route_table_association" "private-rt-s3-vpce" {
   route_table_id  = aws_vpc.vpc.default_route_table_id
   vpc_endpoint_id = aws_vpc_endpoint.s3.id
 }
+
+resource "aws_redshift_subnet_group" "openweather-redshift-subnet-group" {
+  name       = "openweather-redshift-subnet-group"
+  subnet_ids = [aws_subnet.public-subnet1.id, aws_subnet.public-subnet2.id]
+
+  tags = {
+    environment = "Develop"
+  }
+}
