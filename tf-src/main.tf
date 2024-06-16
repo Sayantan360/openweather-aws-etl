@@ -21,3 +21,7 @@ provider "aws" {
 module "vpc" {
     source = "./modules/vpc"
 }
+
+module "security-group" {
+    source = "./modules/sg"
+}
