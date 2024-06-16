@@ -23,6 +23,6 @@ module "vpc" {
 }
 
 module "security-group" {
-    source = "./modules/sg"
+    source = "./modules/security-group"
     # vpc-id = module.vpc.vpc-id
 }
