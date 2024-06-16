@@ -9,7 +9,7 @@ resource "aws_s3_object" "folder1" {
   key    = "openweather_raw_data/"
 }
 
-resource "aws_s3_object" "folder3" {
+resource "aws_s3_object" "folder2" {
   bucket = var.bucket_names[2]
   key    = "dags/"
 }
