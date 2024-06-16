@@ -1,6 +1,6 @@
 resource "aws_security_group" "openweather-etl-sg" {
   name        = "openweather-etl-sg"
-  vpc_id      = module.vpc.aws_vpc.vpc.id
+  vpc_id      = module.vpc.vpc-id
 
   tags = {
     Name = "openweather-etl-sg"
