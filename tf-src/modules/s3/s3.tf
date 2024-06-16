@@ -4,15 +4,15 @@ resource "aws_s3_bucket" "buckets" {
   force_destroy = true
 }
 
-# resource "aws_s3_object" "folder1" {
-#   bucket = aws_s3_bucket.bucket1.id
-#   key    = "openweather_raw_data/"
-# }
+resource "aws_s3_object" "folder1" {
+  bucket = var.bucket_names[0]
+  key    = "openweather_raw_data/"
+}
 
-# resource "aws_s3_object" "folder3" {
-#   bucket = aws_s3_bucket.bucket1.id
-#   key    = "dags/"
-# }
+resource "aws_s3_object" "folder3" {
+  bucket = var.bucket_names[2]
+  key    = "dags/"
+}
 
 
 # resource "aws_s3_object" "file" {
