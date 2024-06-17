@@ -30,3 +30,9 @@ module "security-group" {
 module "s3" {
     source = "./modules/s3"
 }
+
+module "redshift" {
+    source = "./modules/redshift"
+    redshift-role-arn = module.iam.redshift-role-arn
+    sg-id = module.security-group.sg-id
+}
