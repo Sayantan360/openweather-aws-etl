@@ -14,29 +14,29 @@ terraform {
 }
 }
 
-provider "aws" {
-  region  = "us-east-1"
-}  
+# provider "aws" {
+#   region  = "us-east-1"
+# }  
 
-module "vpc" {
-    source = "./modules/vpc"
-}
+# module "vpc" {
+#     source = "./modules/vpc"
+# }
 
-module "security-group" {
-    source = "./modules/security-group"
-    vpc-id = module.vpc.vpc-id
-}
+# module "security-group" {
+#     source = "./modules/security-group"
+#     vpc-id = module.vpc.vpc-id
+# }
 
 module "s3" {
     source = "./modules/s3"
 }
 
-module "redshift" {
-    source = "./modules/redshift"
-    redshift-role-arn = module.iam.redshift-role-arn
-    sg-id = module.security-group.sg-id
-}
+# module "redshift" {
+#     source = "./modules/redshift"
+#     redshift-role-arn = module.iam.redshift-role-arn
+#     sg-id = module.security-group.sg-id
+# }
 
-module "iam" {
-    source = "./modules/iam"
+# module "iam" {
+#     source = "./modules/iam"
 }
